@@ -6,6 +6,13 @@
     <body>
 
         <h1>Thank you! You have been signed up to the event!</h1>
+        <p>See who else is coming: </p>
 
+        <p th:each="item : ${list}">
+            <span th:text="${item.name}">Participant name</span>
+             <span th:text=" ${item.address}">Participant address</span>
+        </p>
+        
+        
     </body>
 </html>
