@@ -12,7 +12,7 @@ import sec.project.repository.SignupRepository;
 
 @Controller
 public class SignupController {
-    
+
     @Autowired
     private SignupRepository signupRepository;
 
@@ -27,12 +27,15 @@ public class SignupController {
     }
 
     @RequestMapping(value = "/form", method = RequestMethod.POST)
-    public String submitForm(@RequestParam String name, @RequestParam String address, Model model) {
+    public String submitForm(@RequestParam String name, @RequestParam String address) {
         signupRepository.save(new Signup(name, address));
-        
-          List <Signup> list = signupRepository.findAll();
-          model.addAttribute("list", list);
-          
+        return "redirect:/done";
+    }
+
+    @RequestMapping("/done")
+    public String done(Model model) {
+        List<Signup> list = signupRepository.findAll();
+        model.addAttribute("list", list);
         return "done";
     }
 
