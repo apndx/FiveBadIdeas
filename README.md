@@ -1,2 +1,2 @@
 # FiveBadIdeas
-Miniproject for Cyber Security Base Course. Tecs: Java - Springboot
+Miniproject for Cyber Security Base Course. Tecs: Java - Springboot - Thymeleaf
