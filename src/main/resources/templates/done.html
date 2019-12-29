@@ -4,15 +4,27 @@
         <title>Thank you!</title>
     </head>
     <body>
-
-        <h1>Thank you! You have been signed up to the event!</h1>
-        <p>See who else is coming: </p>
-
-        <p th:each="item : ${list}">
-            <span th:text="${item.name}">Participant name</span>
-             <span th:text=" ${item.address}">Participant address</span>
-        </p>
-        
-        
+        <h1>Thank you! You have been signed up for some bad ideas!</h1>
+        <p>See who else is joining you in this badness: </p>
+        <table>
+            <thead>
+                <tr>
+                    <th th:text="Name">Name</th>
+                    <th th:text="Address">Address</th>
+                    <th th:text="Idea">Idea</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item : ${list}">
+                    <td th:text="${item.name}">Participant name</td>
+                    <td th:text=" ${item.address}">Participant address</td>
+                    <td th:utext="${item.idea}">Participant idea</td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="content"></div>
+        <script type="text/javascript">
+            document.getElementById("content").innerHTML = '<iframe width="250" height="250" src="https://68.media.tumblr.com/c8771963d5c44402c541fa083386e8bc/tumblr_or7f5r6zei1tlmx1vo1_250.gif"></iframe>';
+        </script>
     </body>
 </html>
